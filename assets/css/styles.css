@@ -832,6 +832,7 @@ ul {
 /* Video modal */
 .video-modal-panel {
   width: min(960px, 96vw);
+  overflow: visible;
 }
 
 .video-modal-body {

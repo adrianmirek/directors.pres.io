@@ -41,7 +41,7 @@
     {
       kind: "Prompt XML",
       title: "feature_analysis_prompt.xml",
-      source: "../ItemRanking/feature_analysis_prompt.xml",
+      source: "ItemRanking/feature_analysis_prompt.xml",
       highlights: [
         {
           label: "Role",
@@ -77,7 +77,7 @@
     {
       kind: "Analysis Markdown",
       title: "feature_analysis.md",
-      source: "../ItemRanking/feature_analysis.md",
+      source: "ItemRanking/feature_analysis.md",
       highlights: [
         {
           label: "Business Context",
@@ -108,7 +108,7 @@
     {
       kind: "Prompt XML",
       title: "implementation_plans_prompt.xml",
-      source: "../ItemRanking/implementation_plans_prompt.xml",
+      source: "ItemRanking/implementation_plans_prompt.xml",
       highlights: [
         {
           label: "Role",
@@ -135,7 +135,7 @@
     {
       kind: "Plan Markdown",
       title: "service_api_implementation_plan.md",
-      source: "../ItemRanking/service_api_implementation_plan.md",
+      source: "ItemRanking/service_api_implementation_plan.md",
       highlights: [
         {
           label: "Database Plan",
@@ -165,7 +165,7 @@
     {
       kind: "Prompt XML",
       title: "user_stories_prompt.xml",
-      source: "../ItemRanking/user_stories_prompt.xml",
+      source: "ItemRanking/user_stories_prompt.xml",
       highlights: [
         {
           label: "Role",
@@ -202,7 +202,7 @@
     {
       kind: "Stories Markdown",
       title: "user_stories.md",
-      source: "../ItemRanking/user_stories.md",
+      source: "ItemRanking/user_stories.md",
       highlights: [
         {
           label: "Coverage",
@@ -434,6 +434,19 @@
     container.appendChild(mainGroup);
   }
 
+  function lockScroll() {
+    var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.documentElement.style.paddingRight = scrollbarWidth + "px";
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+  }
+
+  function unlockScroll() {
+    document.documentElement.style.overflow = "";
+    document.documentElement.style.paddingRight = "";
+    document.body.style.overflow = "";
+  }
+
   function getModalElements() {
     return {
       modal: document.getElementById("doc-modal"),
@@ -490,7 +503,7 @@
 
     elements.modal.hidden = false;
     elements.modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
+    lockScroll();
   }
 
   function closeDocModal() {
@@ -504,7 +517,7 @@
     if (elements.highlights) {
       elements.highlights.innerHTML = "";
     }
-    document.body.style.overflow = "";
+    unlockScroll();
   }
 
   function enableDocumentViewer() {
@@ -807,7 +820,7 @@
 
     modal.hidden = false;
     modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
+    lockScroll();
   }
 
   function closeListModal() {
@@ -821,7 +834,7 @@
     if (bodyEl) {
       bodyEl.innerHTML = "";
     }
-    document.body.style.overflow = "";
+    unlockScroll();
   }
 
   function enableListModal() {
@@ -861,7 +874,7 @@
     }
     modal.hidden = false;
     modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
+    lockScroll();
   }
 
   function closeVideoModal() {
@@ -876,7 +889,7 @@
     }
     modal.hidden = true;
     modal.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
+    unlockScroll();
   }
 
   function enableVideoModal() {
