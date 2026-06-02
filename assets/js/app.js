@@ -677,6 +677,9 @@
     ["File", "Changes", "Path"].forEach(function (col) {
       var th = document.createElement("th");
       th.textContent = col;
+      if (col === "Path") {
+        th.className = "path-header";
+      }
       headerRow.appendChild(th);
     });
     thead.appendChild(headerRow);
